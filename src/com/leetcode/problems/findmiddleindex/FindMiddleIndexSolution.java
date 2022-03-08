@@ -8,7 +8,9 @@ package com.leetcode.problems.findmiddleindex;
 public class FindMiddleIndexSolution {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] nums = {-1, -1, 0, 1, 1, 0};
+        //int[] nums = {-1, -1, 0, 1, 1, 0, 0};
+        int[] nums = {0, -1, 1};
+        //int[] nums = {2,2};
         int centerIndex = solution.findMiddleIndex(nums);
         System.out.println(centerIndex);
     }
@@ -16,9 +18,6 @@ public class FindMiddleIndexSolution {
 
 class Solution {
     public int findMiddleIndex(int[] nums) {
-        if (nums.length == 0) {
-            return -1;
-        }
         //第一次循环代表中心索引的位置
         for (int centerIndex = 0; centerIndex < nums.length; centerIndex++) {
             if (centerIndex == 0 && 0 == partSum(nums, 1, nums.length - 1)) {
