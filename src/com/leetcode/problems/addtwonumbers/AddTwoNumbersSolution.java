@@ -4,7 +4,7 @@ package com.leetcode.problems.addtwonumbers;
  * @Author Duole
  * @Version 1.0
  */
-public class addTwoNumbersSolution {
+public class AddTwoNumbersSolution {
     public static void main(String[] args) {
         ListNode n1 = new ListNode(9);
         ListNode n2 = new ListNode(9);
