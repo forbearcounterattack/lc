@@ -10,12 +10,29 @@ public class Lc27 {
         Solution solution = new Solution();
         System.out.println(solution.removeElement(arr, 2));
 
+
+        int[] arr1 = {3, 2, 2, 3, 1, 2};
+        System.out.println(solution.removeElement_feeder(arr, 2));
+
     }
 }
 
 class Solution {
     //双指针，左指针找等于val的元素，右指针找不等于val的元素。二者进行交换
     public int removeElement(int[] nums, int val) {
+        int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[index] = nums[i];
+                index++;
+            }
+        }
+        return index;
+    }
+
+
+    //双指针，左指针找等于val的元素，右指针找不等于val的元素。二者进行交换
+    public int removeElement_feeder(int[] nums, int val) {
         int front = 0;
         int back = nums.length - 1;
         while (front < back) {
