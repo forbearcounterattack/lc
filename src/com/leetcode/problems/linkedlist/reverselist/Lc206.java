@@ -20,12 +20,6 @@ public class Lc206 {
         node2.next = node3;
         node3.next = node4;
 
-
-//        while (head != null) {
-//            System.out.println(head.val + "   ");
-//            head = head.next;
-//        }
-
         Solution solution = new Solution();
 
         ListNode resultNode = solution.reverseList(head);
@@ -37,7 +31,19 @@ public class Lc206 {
 }
 
 class Solution {
+    //递归解法
     public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
+    //双指针：增加前置指针和后置指针
+    public ListNode reverseList1(ListNode head) {
         //当前节点的前一个节点，逆转后的下一个节点
         ListNode pre = null;
         //当前节点的下一个节点
