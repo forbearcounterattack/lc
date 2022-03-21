@@ -28,11 +28,9 @@ class Solution {
         //key是某个元素，value是这个元素对应的其右侧第一个大于它自己的元素
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums2.length; i++) {
-            if (!stack.isEmpty()) {
-                while (!stack.isEmpty() && stack.peek() < nums2[i]) {
-                    //这里需要注意的是，可以不是stackPeek，而是stackPop
-                    map.put(stack.pop(), nums2[i]);
-                }
+            while (!stack.isEmpty() && stack.peek() < nums2[i]) {
+                //这里需要注意的是，可以不是stackPeek，而是stackPop
+                map.put(stack.pop(), nums2[i]);
             }
             stack.add(nums2[i]);
         }
