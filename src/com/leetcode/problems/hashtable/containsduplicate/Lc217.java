@@ -1,4 +1,4 @@
-package com.leetcode.problems.hashtable;
+package com.leetcode.problems.hashtable.containsduplicate;
 
 import java.util.Arrays;
 import java.util.HashMap;
