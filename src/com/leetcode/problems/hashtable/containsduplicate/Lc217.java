@@ -2,6 +2,7 @@ package com.leetcode.problems.hashtable.containsduplicate;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -19,8 +20,19 @@ public class Lc217 {
 
 
 class Solution {
-    //方法二：排序后判断相邻元素
+    //方法三:使用hashset
     public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (!set.add(nums[i])) {
+                return true;
+            }
+        }
+        return set.size() != nums.length;
+    }
+
+    //方法二：排序后判断相邻元素
+    public boolean containsDuplicate2(int[] nums) {
         Arrays.sort(nums);
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i] == nums[i + 1]) {
