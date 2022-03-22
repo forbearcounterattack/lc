@@ -28,7 +28,9 @@ class Solution {
                 return true;
             }
         }
-        return set.size() != nums.length;
+        //return set.size() != nums.length;
+        //这里可以优化,可以直接返回false
+        return false;
     }
 
     //方法二：排序后判断相邻元素
