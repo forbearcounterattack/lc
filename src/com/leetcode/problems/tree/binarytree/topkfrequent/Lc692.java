@@ -20,6 +20,22 @@ public class Lc692 {
         System.out.println(solution.topKFrequent(arr, 2));
 
 
+        ArrayList<Integer> list = new ArrayList();
+        list.add(1);
+        list.add(9);
+        list.add(8);
+        list.add(7);
+
+        Collections.sort(list, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        System.out.println(list);
+
+        Collections.reverse(list);
+        System.out.println(list);
     }
 }
 
