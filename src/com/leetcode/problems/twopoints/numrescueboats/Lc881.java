@@ -1,7 +1,6 @@
 package com.leetcode.problems.twopoints.numrescueboats;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * @Author Duole
