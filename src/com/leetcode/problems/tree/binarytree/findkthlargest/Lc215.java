@@ -8,6 +8,9 @@ import java.util.PriorityQueue;
  * @Version 1.0
  */
 public class Lc215 {
+    public static void main(String[] args) {
+        
+    }
 }
 
 class Solution {
