@@ -1,4 +1,4 @@
-package com.leetcode.problems.search.findpeakelement;
+package com.leetcode.problems.search.binarysearch.findpeakelement;
 
 public class Lc162 {
 }

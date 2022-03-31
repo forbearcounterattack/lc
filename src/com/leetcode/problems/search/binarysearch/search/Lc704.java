@@ -1,4 +1,4 @@
-package com.leetcode.problems.search.search;
+package com.leetcode.problems.search.binarysearch.search;
 
 public class Lc704 {
     public static void main(String[] args) {

@@ -1,6 +1,4 @@
-package com.leetcode.problems.search.searchinsert;
-
-import javax.sound.midi.Soundbank;
+package com.leetcode.problems.search.binarysearch.searchinsert;
 
 public class Lc35 {
     public static void main(String[] args) {
