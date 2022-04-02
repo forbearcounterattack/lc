@@ -1,8 +1,5 @@
 package com.leetcode.problems.linkedlist.reverselist;
 
-import java.util.List;
-import java.util.Stack;
-
 /**
  * @Author Duole
  * @Version 1.0
