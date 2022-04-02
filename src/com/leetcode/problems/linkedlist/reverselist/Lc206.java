@@ -27,12 +27,16 @@ public class Lc206 {
             System.out.println(resultNode.val + "   ");
             resultNode = resultNode.next;
         }
+
+        char[] s = {'a','b'};
+
     }
 }
 
 class Solution {
     //递归解法
     public ListNode reverseList(ListNode head) {
+        //这里判断head == null 居然是为了验证输入的数组是[]的情况。。。。。。  醉了
         if (head == null || head.next == null) {
             return head;
         }
