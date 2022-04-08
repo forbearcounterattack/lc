@@ -2,7 +2,6 @@ package com.leetcode.problems.backtracking.combine;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class Lc77 {
     public static void main(String[] args) {
@@ -16,7 +15,6 @@ public class Lc77 {
 
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
-
         List<List<Integer>> result = new ArrayList();
         ArrayList<Integer> path = new ArrayList();
         backTracking(n, k, 1, result, path);
