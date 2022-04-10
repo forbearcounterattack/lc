@@ -38,7 +38,7 @@ class Solution {
     }
 
     private boolean isPartition(String s) {
-        if (s.length() == 1) {
+        if (s.length() <= 1) {
             return true;
         }
         int left = 0;
@@ -47,7 +47,6 @@ class Solution {
             if (s.charAt(left) == s.charAt(right)) {
                 left++;
                 right--;
-                continue;
             } else {
                 return false;
             }
