@@ -31,9 +31,10 @@ class Solution {
         for (Integer tmp : path) {
             sum += tmp;
         }
-        if (sum > target) {
-            return;
-        }
+        //下面循环条件剪枝后，此处的剪枝可以省略了
+//        if (sum > target) {
+//            return;
+//        }
         if (sum == target) {
             result.add(new ArrayList(path));
             return;
