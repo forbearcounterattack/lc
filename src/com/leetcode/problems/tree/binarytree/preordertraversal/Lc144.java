@@ -35,6 +35,24 @@ class Solution {
 
     //非递归--前序遍历二叉树
     public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList();
+        Stack<TreeNode> stack = new Stack();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode node = stack.pop();
+            if(null != node){
+                result.add(node.val);
+            }else{
+                continue;
+            }
+            stack.push(node.right);
+            stack.push(node.left);
+        }
+        return result;
+    }
+
+    //非递归--前序遍历二叉树
+    public List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode curNode = root;

@@ -1,6 +1,7 @@
 package com.leetcode.problems.tree.binarytree.postordertraversal;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -31,9 +32,27 @@ class TreeNode {
 }
 
 class Solution {
+    //方式二：迭代
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList();
+        Stack<TreeNode> stack = new Stack();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode node = stack.pop();
+            if(null != node){
+                result.add(node.val);
+            }else{
+                continue;
+            }
+            stack.add(node.left);
+            stack.add(node.right);
+        }
+        Collections.reverse(result);
+        return result;
+    }
 
     //非递归--后序遍历二叉树
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal2(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode prev = null;
