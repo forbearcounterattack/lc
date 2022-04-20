@@ -30,28 +30,27 @@ class TreeNode {
 
 class Solution {
     public int minDepth(TreeNode root) {
+        int min = 1;
         Queue<TreeNode> queue = new LinkedList();
         if (null != root) {
             queue.offer(root);
         } else {
             return 0;
         }
-        int min = 1;
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                if (node.left != null) {
-                    queue.offer(node.left);
+                if (node.left == null && node.right == null) {
+                    return min;
                 } else {
-                    if (node.right == null) {
-                        return min;
+                    if (node.left != null) {
+                        queue.offer(node.left);
+                    }
+                    if (node.right != null) {
+                        queue.offer(node.right);
                     }
                 }
-                if (node.right != null) {
-                    queue.offer(node.right);
-                }
-
             }
             min += 1;
         }
