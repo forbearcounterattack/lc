@@ -33,41 +33,42 @@ public class Lc203 {
 }
 
 class Solution {
-    //方法一：增加虚拟节点和前置指针
+    //方法一：增加一个虚拟头节点
     public ListNode removeElements1(ListNode head, int val) {
-        ListNode newHead = new ListNode(-1, head);
-        ListNode pre = newHead;
-        while (head != null) {
-            if (head.val == val) {
-                head = head.next;
-                pre.next = head;
-            } else {
-                pre = head;
-                head = head.next;
-            }
-        }
-        return newHead.next;
-    }
-
-    //方法二：单独处理头节点和前置指针
-    public ListNode removeElements(ListNode head, int val) {
-        while (head != null && head.val == val) {
-            head = head.next;
-        }
-        if (head == null) {
+        if (null == head){
             return null;
         }
-
-        ListNode cur = head.next;
-        ListNode pre = head;
-        while (cur != null) {
+        ListNode tmpHead = new ListNode(-1, head);
+        ListNode pre = tmpHead;
+        ListNode cur = head;
+        while (null != cur) {
             if (cur.val == val) {
-                cur = cur.next;
-                pre.next = cur;
+                pre.next = cur.next;
             } else {
                 pre = cur;
-                cur = cur.next;
             }
+            cur = cur.next;
+        }
+        return tmpHead.next;
+    }
+
+    //方法二：直接利用原来的头节点
+    public ListNode removeElements(ListNode head, int val) {
+        while (null != head && head.val == val) {
+            head = head.next;
+        }
+        if (null == head){
+            return null;
+        }
+        ListNode pre = head;
+        ListNode cur = head.next;
+        while (null != cur) {
+            if (cur.val == val) {
+                pre.next = cur.next;
+            } else {
+                pre = cur;
+            }
+            cur = cur.next;
         }
         return head;
     }
