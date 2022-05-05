@@ -25,14 +25,14 @@ public class Lc206 {
             resultNode = resultNode.next;
         }
 
-        char[] s = {'a','b'};
+        char[] s = {'a', 'b'};
 
     }
 }
 
 class Solution {
-    //递归解法
-    public ListNode reverseList(ListNode head) {
+    //方法一：递归解法
+    public ListNode reverseList1(ListNode head) {
         //这里判断head == null 居然是为了验证输入的数组是[]的情况。。。。。。  醉了
         if (head == null || head.next == null) {
             return head;
@@ -43,18 +43,17 @@ class Solution {
         return newHead;
     }
 
-    //双指针：增加前置指针和后置指针
-    public ListNode reverseList1(ListNode head) {
-        //当前节点的前一个节点，逆转后的下一个节点
+    //方法二：双指针
+    public ListNode reverseList(ListNode head) {
+        //当前节点的前一个节点
         ListNode pre = null;
-        //当前节点的下一个节点
-        ListNode curNext = null;
-        //head就代表当前节点
-        while (head != null) {
-            curNext = head.next;
-            head.next = pre;
-            pre = head;
-            head = curNext;
+        //被逆转的每一个节点
+        ListNode cur = head;
+        while (null != cur) {
+            ListNode curNext = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = curNext;
         }
         return pre;
     }
