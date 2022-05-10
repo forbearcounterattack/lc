@@ -1,4 +1,4 @@
-package com.leetcode.problems.string;
+package com.leetcode.problems.string.reversestr;
 
 import java.util.ArrayList;
 import java.util.List;
