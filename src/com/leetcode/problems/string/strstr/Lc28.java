@@ -7,9 +7,44 @@ public class Lc28 {
         System.out.println(new Solution().strStr(haystack, needle));
     }
 }
-
 class Solution {
     public int strStr(String haystack, String needle) {
+        int[] next = new int[needle.length()];
+        getNext(next, needle);
+        int j = 0;
+        for (int i = 0; i < haystack.length(); i++) {
+            while (j > 0 && haystack.charAt(i) != needle.charAt(j)) {
+                j = next[j - 1];
+            }
+            if (haystack.charAt(i) == needle.charAt(j)) {
+                j++;
+            }
+            //当j的长度和needle长度相等的时候，就说明已经完全匹配了模式串
+            if (j == needle.length()) {
+                return i - needle.length() + 1;
+            }
+        }
+        return -1;
+    }
+
+
+    private void getNext(int[] next, String needle) {
+        //j是前缀末尾位置
+        int j = 0;
+        next[j] = 0;
+        //i是后缀末尾位置
+        for (int i = 1; i < needle.length(); i++) {
+            while (j > 0 && needle.charAt(i) != needle.charAt(j)) {
+                j = next[j - 1];
+            }
+            if (needle.charAt(i) == needle.charAt(j)) {
+                j++;
+            }
+            next[i] = j;
+        }
+    }
+
+    public int strStr2(String haystack, String needle) {
         if (needle.equals("")) {
             return 0;
         }
