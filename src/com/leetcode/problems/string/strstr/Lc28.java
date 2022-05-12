@@ -34,12 +34,15 @@ class Solution {
         next[j] = 0;
         //i是后缀末尾位置
         for (int i = 1; i < needle.length(); i++) {
+            //前后缀不相同的情况
             while (j > 0 && needle.charAt(i) != needle.charAt(j)) {
                 j = next[j - 1];
             }
+            //前后缀相同的情况
             if (needle.charAt(i) == needle.charAt(j)) {
                 j++;
             }
+            //更新前缀表(next)数组
             next[i] = j;
         }
     }
