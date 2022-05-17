@@ -18,33 +18,30 @@ public class Lc239 {
 
 
 class Solution {
+
     //方法三：使用单调队列
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
-        Deque<Integer> deque = new LinkedList<>();
+        Deque<Integer> deque = new LinkedList();
         int[] result = new int[n - k + 1];
-
-        for (int i = 0; i < k; i++) {
-            while (!deque.isEmpty() && nums[i] > nums[deque.peekLast()]) {
-                deque.pollLast();
-            }
-            deque.offerLast(i);
-        }
-        result[0] = nums[deque.peekFirst()];
-        for (int i = k; i < n; i++) {
+        int index = 0;
+        for (int i = 0; i < n; i++) {
             //第一步：删除头部，保证滑动窗口的长度为k
-            while (!deque.isEmpty() && deque.peekFirst() < i - k + 1) {
+            //while (!deque.isEmpty() && deque.peekFirst() < i - k + 1) {
+            if (!deque.isEmpty() && deque.peekFirst() == i - k) {
                 deque.pollFirst();
             }
             //第二步：移除尾部小于nums[i]的元素
             while (!deque.isEmpty() && nums[i] > nums[deque.peekLast()]) {
                 deque.removeLast();
             }
-            //第三步：尾部插入nums[i]
+            //第三步：尾部插入i
             deque.offerLast(i);
             //第四步：更新结果数组
             if (i - k + 1 >= 0) {
-                result[i - k + 1] = nums[deque.peekFirst()];
+                //result[i - k + 1] = nums[deque.peekFirst()];
+                //此处的优化也更好理解
+                result[index++] = nums[deque.peekFirst()];
             }
         }
         return result;
